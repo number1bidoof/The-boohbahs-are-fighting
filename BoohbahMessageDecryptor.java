@@ -62,7 +62,7 @@ public class BoohbahMessageDecryptor {
             // TODO: Try different shift values (0-25) until you find a decryption that makes sense
             // Loop through possible shift values and print each decryption attempt
             // When you find one that looks like a real message, note the shift value!
-            for(int i = 1; i < 26; i++){
+            for(int i = 1; i < 26; i++){ // only 25 becuase the ceaser cipher max shift is 25, 26 would result in no encryption 
                 String temp = decrypt(encryptedMessage, i);
                 System.out.println("Shift "+ i + ": "+ temp);
             }
