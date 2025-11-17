@@ -54,7 +54,7 @@ public class BoohbahMessageDecryptor {
         
         // TODO: Try-with-resources block to handle IOException
         // Include file operations within the try parentheses so resources are automatically closed
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile)); FileWriter writer = new FileWriter(outputFile,true)) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile)); FileWriter writer = new FileWriter(outputFile)) {
         
             // TODO: Read the encrypted message from the file (one line)
             String encryptedMessage = reader.readLine();
