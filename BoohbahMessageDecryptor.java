@@ -49,12 +49,12 @@ public class BoohbahMessageDecryptor {
     
     public static void main(String[] args) {
         // TODO: Declare variables for file paths
-        String inputFile = "encrypted message.txt";
-        String outputFile = "decrypted message.txt";
+        String inputFile = "encrypted_message.txt";
+        String outputFile = "decrypted_message.txt";
         
         // TODO: Try-with-resources block to handle IOException
         // Include file operations within the try parentheses so resources are automatically closed
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile)); FileWriter writer = new FileWriter(outputFile,true)) {
         
             // TODO: Read the encrypted message from the file (one line)
             String encryptedMessage = reader.readLine();
@@ -70,19 +70,21 @@ public class BoohbahMessageDecryptor {
             // Once you've identified the correct shift value, use it to decrypt the message
             int correctShift = 3;
             String decryptedMessage = decrypt(encryptedMessage, correctShift);
+            writer.write(decryptedMessage);
             
-            try (FileWriter writer = new FileWriter(outputFile,true)) {
-                writer.write(decryptedMessage);
-            }
             // TODO: Display results to console
-            System.out.println(decryptedMessage);
+            System.out.println("\n************ BOOHBAH INTELLIGENCE REPORT ************");
+            System.out.println("Encrypted Message: "+ encryptedMessage);
+            System.out.println("Decrypted Message: " + decryptedMessage);
+            System.out.println("This important message was saved to " + outputFile);
+            System.out.println("STATUS: The threat has been DETECTED, ALL emergency intelligence operations has been ENACTED!!!");
             
         } catch (IOException e) {
             // TODO: Handle the IOException appropriately
-            System.out.println(e);
+            System.out.println("Uh Oh, try putting the file in the same directory, or renaming it to the names in this file! ");
         }
         finally{
-            System.out.println("Done and dusted :3");
+            System.out.println("The Boohbahs have just recived a critical message!!! ");
         }
     }
 }
